@@ -758,6 +758,7 @@ function! Tex_StartOutlineCompletion()
 	setlocal nowrap
     setlocal foldmethod=marker
     setlocal foldmarker=<<<,>>>
+	set nofoldenable
 
 	if Tex_UsePython()
 		exec g:Tex_PythonCmd . ' retval = outline.main("""' . mainfname . '""", """' . s:prefix . '""")'
