@@ -947,10 +947,10 @@ inoremap <script> <silent> <Plug>Tex_InsertItemOnNextLine <ESC>o<C-R>=Tex_Insert
 
 function! Tex_SetItemMaps()
 	if !hasmapto("<Plug>Tex_InsertItemOnThisLine", "i")
-		imap <buffer> <M-i> <Plug>Tex_InsertItemOnThisLine
+		" imap <buffer> <M-i> <Plug>Tex_InsertItemOnThisLine
 	endif
 	if !hasmapto("<Plug>Tex_InsertItemOnNextLine", "i")
-		imap <buffer> <C-CR> <Plug>Tex_InsertItemOnNextLine
+		" imap <buffer> <C-CR> <Plug>Tex_InsertItemOnNextLine
 	endif
 endfunction " }}}
 
@@ -1001,7 +1001,8 @@ function! Tex_DoCommand(isvisual)
 		let wordbef = matchstr(strpart(presline, 0, c-1), '\k\+\*\?$')
 		let wordaft = matchstr(strpart(presline, c-1), '^\k\+\*\?')
 
-		let word = wordbef . wordaft
+		let word = wordbef
+		" let word = wordbef . wordaft
 		call Tex_Debug("Tex_DoCommand: wordbef = [".wordbef."], wordaft = [".wordaft."], word = [".word."]", 'env')
 
 		" We use \<Del> instead of \<Bs> because \<Bs> does not work

@@ -301,7 +301,7 @@ function! MakeTexFolds(force)
 	if g:Tex_FoldedSections != '' 
 		call Tex_FoldSections(g:Tex_FoldedSections,
 			\ '^\s*\\frontmatter\|^\s*\\mainmatter\|^\s*\\backmatter\|'
-			\. '^\s*\\begin{thebibliography\|>>>\|^\s*\\endinput\|'
+			\. '^\s*\\begin{thebibliography\|^\s*\\endinput\|'
 			\. '^\s*\\begin{slide\|^\s*\\end{document')
 	endif
 	" }}} 
@@ -329,14 +329,14 @@ function! MakeTexFolds(force)
 	" }}}
 
 	" Manually folded regions {{{
-	if g:Tex_FoldedMisc =~ '\(^\|,\)<<<\(,\|$\)'
-		call AddSyntaxFoldItem (
-			\ '<<<',
-			\ '>>>',
-			\ 0,
-			\ 0
-			\ )
-	endif
+	" if g:Tex_FoldedMisc =~ '\(^\|,\)<<<\(,\|$\)'
+	" 	call AddSyntaxFoldItem (
+	" 		\ '<<<',
+	" 		\ '>>>',
+	" 		\ 0,
+	" 		\ 0
+	" 		\ )
+	" endif
 	" }}}
 	
 	call MakeSyntaxFolds(a:force)

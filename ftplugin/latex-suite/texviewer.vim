@@ -8,7 +8,6 @@
 " ============================================================================
 " Tex_SetTexViewerMaps: sets maps for this ftplugin {{{
 function! Tex_SetTexViewerMaps()
-	inoremap <silent> <Plug>Tex_Completion <Esc>:call Tex_Complete("default","text")<CR>
 	if !hasmapto('<Plug>Tex_Completion', 'i')
 		if has('gui_running')
 			imap <buffer> <silent> <F9> <Plug>Tex_Completion
@@ -16,6 +15,7 @@ function! Tex_SetTexViewerMaps()
 			imap <buffer> <F9> <Plug>Tex_Completion
 		endif
 	endif
+	inoremap <silent> <Plug>Tex_Completion <Esc>:call Tex_Complete("default","text")<CR>
 endfunction
 
 augroup LatexSuite
